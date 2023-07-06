@@ -29,9 +29,7 @@
       "[production]": {
         "auth": "xsuaa",
         "db": "hana",
-        "multitenancy": true,
-        "toggles": true,
-        "extensibility": true
+        "multitenancy": true
       }
     },
     "profile": "with-mtx-sidecar"
