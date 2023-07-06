@@ -51,7 +51,7 @@ runs:
         npm i
         tag="tag$(date +%s)"
         
-        participantID=<your-participant-id>
+        participantID=037
         hana_image=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-hana-deployer:$tag
         srv_image=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-srv:$tag
         approuter_image=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-approuter:$tag
