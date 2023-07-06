@@ -65,7 +65,7 @@ runs:
         docker push $sidecar_image
         docker push $srv_image
 
-        helm upgrade --set sidecar.image.repository=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-sidecar --set sidecar.image.tag=${tag} --set srv.image.repository=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-srv --set srv.image.tag=${tag} --set approuter.image.repository=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-approuter --set approuter.image.tag=${tag} bookshop-${participantID} ./chart --install
+        helm upgrade --set sidecar.image.repository=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-sidecar --set sidecar.image.tag=${tag} --set srv.image.repository=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-srv --set srv.image.tag=${tag} --set approuter.image.repository=${{inputs.IMAGEREGISTRY}}/recap/${participantID}/bookshop-approuter --set approuter.image.tag=${tag} bookshop-${participantID} ./chart --install --set-file xsuaa.jsonParameters=xs-security.json
 
         kubectl rollout status deployment bookshop-${participantID}-srv --timeout=8m
         kubectl rollout status deployment bookshop-${participantID}-approuter --timeout=8m
