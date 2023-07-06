@@ -14,10 +14,11 @@
   },
   "dependencies": {
     "@sap/cds": ">=5.9",
-    "express": "^4.17.1",
-    "passport": "^0",
+    "@sap/cds-hana": "^2",
+    "@sap/cds-mtxs": "^1.9",
     "@sap/xssec": "^3",
-    "@sap/cds-hana": "^2"
+    "express": "^4.17.1",
+    "passport": "^0"
   },
   "scripts": {
     "genres": "cds serve test/genres.cds",
@@ -27,8 +28,12 @@
     "requires": {
       "[production]": {
         "auth": "xsuaa",
-        "db": "hana"
+        "db": "hana",
+        "multitenancy": true,
+        "toggles": true,
+        "extensibility": true
       }
-    }
+    },
+    "profile": "with-mtx-sidecar"
   }
 }
